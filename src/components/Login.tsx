@@ -15,30 +15,12 @@ interface LoginProps {
 }
 
 export default function Login({ doctors, onLoginSuccess, onCancel, landingConfig }: LoginProps) {
-  const [email, setEmail] = useState('mohamed.jaber@shefaaportal.com');
-  const [password, setPassword] = useState('123456');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(true);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  const fillDoctorCredentials = () => {
-    setEmail('mohamed.jaber@shefaaportal.com');
-    setPassword('123456');
-    setError('');
-  };
-
-  const fillSecretaryCredentials = () => {
-    setEmail('sara@clinic.com');
-    setPassword('123456');
-    setError('');
-  };
-
-  const fillAdminCredentials = () => {
-    setEmail('admin@shefaaportal.com');
-    setPassword('admin123');
-    setError('');
-  };
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -232,36 +214,6 @@ export default function Login({ doctors, onLoginSuccess, onCancel, landingConfig
               )}
               <span className="font-almarai">تسجيل الدخول</span>
             </button>
-          </div>
-
-          {/* Quick Demo Credentials Assistant */}
-          <div className="pt-4 border-t border-neutral-100 flex flex-col gap-2">
-            <span className="text-[11px] font-bold text-neutral-400 text-center">
-              تعبئة سريعة للبيانات التجريبية:
-            </span>
-            <div className="flex flex-wrap items-center justify-center gap-2">
-              <button
-                type="button"
-                onClick={fillDoctorCredentials}
-                className="px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-blue-700 text-xs font-bold rounded-lg border border-blue-200/80 transition-all cursor-pointer"
-              >
-                دخول طبيب
-              </button>
-              <button
-                type="button"
-                onClick={fillSecretaryCredentials}
-                className="px-2.5 py-1.5 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold rounded-lg border border-indigo-200/80 transition-all cursor-pointer"
-              >
-                دخول سكرتيرة
-              </button>
-              <button
-                type="button"
-                onClick={fillAdminCredentials}
-                className="px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-lg border border-slate-300/80 transition-all cursor-pointer"
-              >
-                دخول الأدمن
-              </button>
-            </div>
           </div>
 
         </form>
